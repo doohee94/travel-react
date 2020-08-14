@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
-import CounterContainer from './page/CounterContainer';
-// import { Route } from 'react-router-dom'
+import { Route } from 'react-router-dom';
+import { CounterContainer, Usage } from './pages';
 
 function App() {
   return (
     <div className="App">
-      {/* // <Route pat="/" component={} /> */}
-      <CounterContainer />;
+      <Route path="/usage" component={Usage} />
+      <Route path="/counter" component={CounterContainer} />
     </div>
   );
 }
