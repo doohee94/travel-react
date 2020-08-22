@@ -13,6 +13,8 @@ type CustomSelectType = {
   ) => void;
   values: { value: string | number; label: string | number }[];
   value: any;
+  placeholder?: string;
+  displayEmpty?: boolean;
 };
 
 export default function CustomSelect({
@@ -20,10 +22,18 @@ export default function CustomSelect({
   onChange,
   classes,
   value,
+  placeholder,
+  displayEmpty,
 }: CustomSelectType) {
   return (
     <>
-      <Select onChange={onChange} value={value}>
+      <Select onChange={onChange} value={value} displayEmpty={displayEmpty}>
+        {placeholder && (
+          <MenuItem value="" disabled>
+            {placeholder}
+          </MenuItem>
+        )}
+
         {values &&
           values.map((v, index) => {
             return (
